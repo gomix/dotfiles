@@ -1,0 +1,17 @@
+#!/bin/bash
+# Si no está corriendo urxvtd, lo arranca.
+# Verificar si usa el alias para usar las versiones 256c
+# No es así, así que modifico:
+#if ! urxvtc "$@" ; then
+#	urxvtd -q -o -f
+#	exec urxvtc "$@"
+#fi
+
+if ! urxvt256cc "$@" ; then
+	urxvt256cd -q -o -f
+	exec urxvt256cc "$@"
+fi
+
+# Línea de arranque antigua.
+# Las mayorías de las opciones las estoy manejando en .Xdefaults
+#exec -l urxvtc -fade 50 -fg green -bg black -pe tabbed
